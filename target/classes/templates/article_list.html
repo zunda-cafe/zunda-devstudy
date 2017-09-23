@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common::header(${pageTitle})">
+
+</head>
+<body>
+<div th:replace="common::breadcrumbs (${pageTitle})"/>
+
+<tr th:each="article : ${articles}">
+    <td>
+        タイトル：<a th:href="@{/article_list/} + ${article.id} + '/' "><span th:text="${article.title}"></span></a><br/>
+    </td>
+</tr>
+
+<div th:if=" ${session.user.id != 0} ">
+    <form action="#" th:action="@{/article_list/}">
+
+        <input type="submit" value="記事を投稿する"/>
+    </form>
+</div>
+<form action="#" th:action="@{/}">
+    <div th:if=" ${session.user.id != 0} ">
+        <input type="submit" value="ログアウト"/>
+    </div>
+    <div th:if=" ${session.user.id == 0} ">
+        <input type="submit" value="ログイン画面へ戻る"/>
+    </div>
+</form>
+
+<!-- ログアウトを実装する -->
+<div th:replace="common::footer"/>
+
+</body>
+</html>

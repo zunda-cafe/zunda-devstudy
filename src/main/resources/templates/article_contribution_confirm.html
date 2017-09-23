@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common::header(${pageTitle})">
+
+</head>
+<body>
+<div th:replace="common::breadcrumbs (${pageTitle})"/>
+
+<form action="#" th:action="@{/article_contribution_confirm/}" th:object="${article}">
+
+    <div>
+        <div style="width:100px;float:left">タイトル:</div>
+        <div><input type="text" th:field="${article.title}" readonly="readonly"
+                    style="background-color:transparent;border:none;"/></div>
+    </div>
+    <div>
+        <div style="width:100px;float:left">本文:</div>
+        <div><input type="text" th:field="${article.body}" readonly="readonly"
+                    style="background-color:transparent;border:none;"/></div>
+    </div>
+
+    <button type="submit" name="param" th:value="contribution">投稿</button>
+    <button type="submit" name="param" th:value="return">戻る</button>
+
+</form>
+<div th:replace="common::footer"/>
+</body>
+</html>

@@ -1,0 +1,27 @@
+body {
+background-image: url(../img/default.gif);
+}
+td{
+	padding:5px 5px 10px 5px;
+	text-indent:1em;
+}
+th{
+	padding:5px 5px 0px 0px;
+	text-indent:1em;
+	white-space:nowrap;
+	vertical-align:top; 
+
+}
+
+hr{
+    /*
+    border:none;
+	*/
+	width:95%;
+
+	border:dotted;
+	border-color:green;
+}
+p{
+	text-indent:1em;
+}

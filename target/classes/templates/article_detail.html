@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="common::header(${pageTitle})">
+
+</head>
+<body>
+<div th:replace="common::breadcrumbs (${pageTitle})"/>
+
+<form action="#" th:action="@{/article_detail/} + ${article.id} + '/'" method="POST">
+
+    <div>
+        <div style="width:100px;float:left">タイトル:</div>
+        <div><input type="text" th:field="${article.title}" readonly="readonly"
+                    style="background-color:transparent;border:none;"/></div>
+    </div>
+    <div>
+        <div style="width:100px;float:left">本文:</div>
+        <div><input type="text" th:field="${article.body}" readonly="readonly"
+                    style="background-color:transparent;border:none;"/></div>
+    </div>
+
+    コメント：<br/>
+    <tr th:each="comment : ${comments}">
+        <td><span th:text="${comment.comment}"></span><br/></td>
+    </tr>
+
+    新規コメント: <br/>
+    <p><textarea th:field="${newComment.comment}" rows="5" cols="20" placeholder="コメントを入力"/></p>
+    <p th:if="${#fields.hasErrors('newComment.comment')}" th:errors="${newComment.comment}" style="color:red">>comment
+        Error</p>
+
+    <button type="submit" name="param" th:value="comment">コメント投稿</button>
+    <button type="submit" name="param" th:if=" ${session.user.id != 0}" th:value="modify">修正</button>
+    <button type="submit" name="param" th:if=" ${session.user.id != 0}" th:value="delete">削除</button>
+    <button type="submit" name="param" th:value="return">一覧に戻る</button>
+
+</form>
+<div th:replace="common::footer"/>
+</body>
+</html>
