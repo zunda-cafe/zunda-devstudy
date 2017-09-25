@@ -7,7 +7,7 @@ cache:
     - $HOME/.m2
 install: true
 defore_script: chmod +x mvnw
-script: .mvnw clean install -Dmaven.test.skip=true
+script: ./mvnw clean install -Dmaven.test.skip=true
 notifications:
   email: false
   slack:
