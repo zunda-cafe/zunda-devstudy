@@ -1,4 +1,0 @@
-# please encode change from utf8 to ascii
-# ex:) native2ascii ValidationMessages_ja.properties.utf8 ValidationMessages_ja.properties
-javax.validation.constraints.NotNull.message=入力してください
-org.hibernate.validator.constraints.Length.message={min}文字以上{max}文字以下で入力してください

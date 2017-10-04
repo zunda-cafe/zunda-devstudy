@@ -14,5 +14,10 @@
 + APを実行する
     * ./src/main/java/ZundaBlogApplicationをRunする
 
+### もしくは(ターミナルでの起動)
+```bash
+$ ./mvnw spring-boot:run -Dmaven.test.skip=true
+```
+
 ### Build status
 [![Build Status](https://travis-ci.org/zunda-cafe/zunda-devstudy.svg?branch=master)](https://travis-ci.org/zunda-cafe/zunda-devstudy)
