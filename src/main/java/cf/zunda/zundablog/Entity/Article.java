@@ -9,6 +9,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "article")
 public class Article {
+    // TODO Lombok化を検討
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
