@@ -6,9 +6,7 @@
 <body>
 <div th:replace="common::breadcrumbs (${pageTitle})"/>
 
-<form action="#" th:action="@{/article_modify_confirm/} + ${article.id} + '/'" method="POST" th:object="${article}">
-
-    <input type="hidden" name="id" th:value="*{id}"/>
+<form action="#" th:action="@{/article/create}" th:method="post" th:object="${article}">
     <div>
         <div style="width:100px;float:left">タイトル:</div>
         <div><input type="text" th:field="${article.title}" readonly="readonly"
@@ -19,10 +17,8 @@
         <div><input type="text" th:field="${article.body}" readonly="readonly"
                     style="background-color:transparent;border:none;"/></div>
     </div>
-
-    <button type="submit" name="param" th:value="modify">確定</button>
-    <button type="submit" name="param" th:value="return">戻る</button>
-
+    <button type="submit">投稿</button>
+    <button type="submit" name="redo">戻る</button>
 </form>
 <div th:replace="common::footer"/>
 </body>
