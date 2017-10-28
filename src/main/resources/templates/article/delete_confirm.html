@@ -6,7 +6,7 @@
 <body>
 <div th:replace="common::breadcrumbs (${pageTitle})"/>
 
-<form action="#" th:action="@{/article_delete_confirm/} + ${article.id} + '/'" method="POST">
+<form action="#" th:action="@{/article/} + ${article.id} + '/delete'" method="POST" th:object="${article}">
 
     <input type="hidden" name="id" th:value="*{id}"/>
     <div>
@@ -20,10 +20,10 @@
                     style="background-color:transparent;border:none;"/></div>
     </div>
 
-    <button type="submit" name="param" th:value="delete">削除</button>
-    <button type="submit" name="param" th:value="return">戻る</button>
-
-
+    <button type="submit">削除</button>
+</form>
+<form action="#" th:action="@{/article/} + ${article.id}" method="get">
+    <button type="submit">戻る</button>
 </form>
 <div th:replace="common::footer"/>
 </body>
