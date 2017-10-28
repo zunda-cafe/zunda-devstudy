@@ -4,28 +4,30 @@
 
 </head>
 <body>
+
 <div th:replace="common::breadcrumbs (${pageTitle})"/>
 
 <tr th:each="article : ${articles}">
     <td>
-        タイトル：<a th:href="@{/article_list/} + ${article.id} + '/' "><span th:text="${article.title}"></span></a><br/>
+        タイトル：<a th:href="@{/article/} + ${article.id}"><span th:text="${article.title}"></span></a><br/>
     </td>
 </tr>
 
 <div th:if=" ${session.user.id != 0} ">
-    <form action="#" th:action="@{/article_list/}">
-
-        <input type="submit" value="記事を投稿する"/>
+    <form action="#" th:action="@{/article/create}" method="get">
+        <button type="submit" name="form">記事を投稿する</button>
     </form>
 </div>
-<form action="#" th:action="@{/}">
+<form action="#" th:action="@{/login}">
     <div th:if=" ${session.user.id != 0} ">
-        <input type="submit" value="ログアウト"/>
+        <button type="submit" name="form">ログアウト</button>
     </div>
     <div th:if=" ${session.user.id == 0} ">
-        <input type="submit" value="ログイン画面へ戻る"/>
+        <button type="submit" name="form">ログイン画面へ戻る</button>
     </div>
 </form>
+<!--/*-->
+<!--*/-->
 
 <!-- ログアウトを実装する -->
 <div th:replace="common::footer"/>
