@@ -1,20 +1,24 @@
 package cf.zunda.zundablog.repository;
 
 import cf.zunda.zundablog.Entity.User;
+import org.apache.tomcat.jdbc.pool.DataSource;
 import org.dbunit.DataSourceDatabaseTester;
 import org.dbunit.operation.DatabaseOperation;
 import org.dbunit.util.fileloader.CsvDataFileLoader;
 import org.junit.Before;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import static org.junit.Assert.*;
+
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.ResourceUtils;
 
-import javax.sql.DataSource;
 
 @SpringBootTest
+@RunWith(SpringJUnit4ClassRunner.class)
 @Rollback
 public class UserRepositoryTest {
     @Autowired
