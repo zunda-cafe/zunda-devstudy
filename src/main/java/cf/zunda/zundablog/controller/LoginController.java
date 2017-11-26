@@ -39,7 +39,6 @@ public class LoginController {
         session.setAttribute("user", user);
 
         mav.addObject("user", userService.findByUserId("user01"));
-//        mav.addObject("user", new User());
         mav.addObject("pageTitle", "ログイン");
         mav.setViewName("login");
         return mav;
